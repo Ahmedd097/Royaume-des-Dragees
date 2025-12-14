@@ -4,23 +4,27 @@ import { LucideIcon } from 'lucide-react';
 interface ServiceSectionProps {
   id: string;
   icon: LucideIcon;
+  imageSrc?: string;
   title: string;
   titleFr: string;
   description: string;
   descriptionFr: string;
   features: string[];
   isReverse?: boolean;
+  lang: 'fr' | 'ar';
 }
 
 export default function ServiceSection({
   id,
   icon: Icon,
+  imageSrc,
   title,
   titleFr,
   description,
   descriptionFr,
   features,
   isReverse = false,
+  lang,
 }: ServiceSectionProps) {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -42,6 +46,8 @@ export default function ServiceSection({
     return () => observer.disconnect();
   }, []);
 
+  const isAr = lang === 'ar';
+
   return (
     <section
       id={id}
@@ -49,6 +55,11 @@ export default function ServiceSection({
       className="relative min-h-screen flex items-center justify-center py-24 px-4"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black" />
+
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-yellow-600/10 blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-yellow-400/10 blur-3xl" />
+      </div>
 
       <div
         className="absolute inset-0 opacity-5"
@@ -69,32 +80,25 @@ export default function ServiceSection({
               <Icon className="w-12 h-12 text-yellow-600" />
             </div>
 
-            <h3 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600 mb-3" dir="rtl">
-              {title}
+            <h3 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600 mb-3" dir={isAr ? 'rtl' : 'ltr'}>
+              {isAr ? title : titleFr}
             </h3>
-
-            <p className="text-yellow-600/80 italic text-xl mb-6">
-              {titleFr}
-            </p>
 
             <div className="w-20 h-1 bg-gradient-to-r from-yellow-600 to-transparent mb-6" />
 
-            <p className="text-gray-300 text-lg leading-relaxed mb-8" dir="rtl">
-              {description}
-            </p>
-
-            <p className="text-gray-400 italic mb-8">
-              {descriptionFr}
+            <p className="text-gray-300 text-lg leading-relaxed mb-8" dir={isAr ? 'rtl' : 'ltr'}>
+              {isAr ? description : descriptionFr}
             </p>
 
             <div className="space-y-4">
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className={`flex items-start gap-3 transform transition-all duration-500 delay-${index * 100} ${
+                  className={`flex items-start gap-3 transform transition-all duration-500 ${
                     isVisible ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
                   }`}
-                  dir="rtl"
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                  dir={isAr ? 'rtl' : 'ltr'}
                 >
                   <div className="w-2 h-2 bg-yellow-600 rounded-full mt-2 flex-shrink-0" />
                   <span className="text-gray-300 text-lg font-light">
@@ -114,8 +118,16 @@ export default function ServiceSection({
           <div className="relative aspect-square rounded-2xl overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/40 to-black/60 z-10 group-hover:from-yellow-900/30 group-hover:to-black/40 transition-all duration-500" />
             <div className="absolute inset-0 bg-gradient-to-br from-yellow-600/20 to-transparent z-20 opacity-0 group-hover:opacity-100 transition-all duration-500" />
+            {imageSrc ? (
+              <img
+                src={imageSrc}
+                alt={isAr ? title : titleFr}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            ) : null}
             <div className="absolute inset-0 flex items-center justify-center z-30">
-              <Icon className="w-48 h-48 text-yellow-600/30 group-hover:scale-110 transition-transform duration-500" />
+              <Icon className="w-44 h-44 text-yellow-600/25 group-hover:scale-110 transition-transform duration-500" />
             </div>
           </div>
         </div>
