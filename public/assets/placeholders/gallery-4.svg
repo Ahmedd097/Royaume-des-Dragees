@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#0b0b0b"/>
+  <g opacity="0.9">
+    <circle cx="360" cy="360" r="170" fill="#D4AF37" fill-opacity="0.08"/>
+    <circle cx="660" cy="420" r="220" fill="#D4AF37" fill-opacity="0.06"/>
+    <circle cx="880" cy="320" r="140" fill="#D4AF37" fill-opacity="0.08"/>
+  </g>
+  <text x="600" y="560" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#D4AF37" fill-opacity="0.78">Placeholder 4</text>
+</svg>

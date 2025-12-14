@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#000000"/>
+  <rect x="80" y="80" width="1040" height="640" rx="36" fill="#111111" stroke="#D4AF37" stroke-opacity="0.5" stroke-width="6"/>
+  <path d="M200 560 C360 420, 420 520, 600 420 C780 320, 820 520, 1000 420" fill="none" stroke="#FFD700" stroke-opacity="0.35" stroke-width="10"/>
+  <text x="600" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="46" fill="#D4AF37" fill-opacity="0.8">Galerie</text>
+  <text x="600" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" fill-opacity="0.45">Placeholder 2 (replace later)</text>
+</svg>

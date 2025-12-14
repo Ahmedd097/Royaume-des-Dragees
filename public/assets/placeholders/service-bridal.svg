@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#090909"/>
+      <stop offset="1" stop-color="#1c1c1c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect x="70" y="70" width="1060" height="660" rx="42" fill="none" stroke="#D4AF37" stroke-opacity="0.55" stroke-width="6"/>
+  <path d="M240 560 C320 440, 420 520, 520 420 C650 280, 780 460, 880 360" fill="none" stroke="#D4AF37" stroke-opacity="0.22" stroke-width="12"/>
+  <text x="110" y="180" font-family="Arial, sans-serif" font-size="48" fill="#D4AF37" fill-opacity="0.9">Mariée</text>
+  <text x="110" y="240" font-family="Arial, sans-serif" font-size="22" fill="#ffffff" fill-opacity="0.55">Placeholder photo — accessoires de mariée</text>
+</svg>
